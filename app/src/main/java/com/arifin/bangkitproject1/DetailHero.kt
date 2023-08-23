@@ -21,6 +21,10 @@ class DetailHero : AppCompatActivity() {
         binding.title.text = heroTitle
         binding.description.text = heroStory
 
+        binding.btnToTop.setOnClickListener{
+            binding.scrollView.smoothScrollTo(0, 0)
+        }
+
         // set buat kembali
         binding.btnBack.setOnClickListener {
             onBackPressed()
