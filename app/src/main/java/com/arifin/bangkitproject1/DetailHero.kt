@@ -3,6 +3,7 @@ package com.arifin.bangkitproject1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.arifin.bangkitproject1.databinding.ActivityDetailHeroBinding
 
 class DetailHero : AppCompatActivity() {
@@ -23,6 +24,14 @@ class DetailHero : AppCompatActivity() {
 
         binding.btnToTop.setOnClickListener{
             binding.scrollView.smoothScrollTo(0, 0)
+        }
+
+        binding.scrollView.viewTreeObserver.addOnScrollChangedListener {
+            if (binding.scrollView.scrollY == 0) {
+                binding.btnToTop.visibility = View.GONE
+            } else {
+                binding.btnToTop.visibility = View.VISIBLE
+            }
         }
 
         // set buat kembali
